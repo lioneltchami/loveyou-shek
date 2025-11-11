@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(test:*)",
+      "Bash(npm run build:*)",
+      "Bash(curl:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run dev:*)",
+      "Bash(timeout:*)",
+      "Bash(taskkill:*)",
+      "Bash(ping:*)",
+      "Bash(nul)",
+      "Bash(findstr:*)",
+      "Bash(tasklist:*)",
+      "Bash(if exist .next rd /s /q .next)",
+      "Bash(del componentsSkeletonLoader.tsx)",
+      "Bash(netstat:*)",
+      "Bash(npx kill-port:*)",
+      "WebFetch(domain:stackoverflow.com)",
+      "Bash(git init:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
