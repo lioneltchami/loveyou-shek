@@ -171,42 +171,6 @@ export default function PhotoGalleryEnhanced() {
           }}
         />
 
-        {/* Instructions section */}
-        <div className="mt-12 text-center bg-white rounded-lg p-8 max-w-2xl mx-auto shadow-md">
-          <h3 className="text-2xl font-semibold mb-4 text-[#8b7355]">{t('gallery.instructions.title')}</h3>
-          <p className="text-gray-700 mb-4">
-            {t('gallery.instructions.intro')}
-          </p>
-          <div className="flex items-center justify-center gap-4 text-sm text-gray-600 mb-4">
-            <div className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-[#8b7355]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-              </svg>
-              <span>Click to view fullscreen</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-[#8b7355]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
-              </svg>
-              <span>Navigate with keyboard</span>
-            </div>
-          </div>
-          <ol className="text-left text-gray-700 space-y-2 max-w-xl mx-auto">
-            <li className="flex items-start gap-2">
-              <span className="font-semibold text-[#8b7355] min-w-[24px]">1.</span>
-              <span dangerouslySetInnerHTML={{ __html: t('gallery.instructions.step1') }} />
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="font-semibold text-[#8b7355] min-w-[24px]">2.</span>
-              <span dangerouslySetInnerHTML={{ __html: t('gallery.instructions.step2') }} />
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="font-semibold text-[#8b7355] min-w-[24px]">3.</span>
-              <span dangerouslySetInnerHTML={{ __html: t('gallery.instructions.step3') }} />
-            </li>
-          </ol>
-        </div>
       </div>
     </section>
   );
