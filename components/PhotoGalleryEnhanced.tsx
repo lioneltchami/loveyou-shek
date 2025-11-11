@@ -113,6 +113,36 @@ export default function PhotoGalleryEnhanced() {
       category: 'wedding',
       type: 'image'
     },
+    {
+      src: '/images/wedding&hubby/3b80e0f7-1c75-4a17-ae24-0c5407898295.jpg',
+      alt: 'Joëlle and Olivier wedding celebration',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Célébration de Mariage' : 'Wedding Celebration',
+      description: language === 'fr' ? 'Joëlle et Olivier célébrant leur union' : 'Joëlle and Olivier celebrating their union',
+      category: 'wedding',
+      type: 'image'
+    },
+    {
+      src: '/images/wedding&hubby/IMG-20170819-WA0005.jpg',
+      alt: 'Wedding day joy',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Joie du Jour du Mariage' : 'Wedding Day Joy',
+      description: language === 'fr' ? 'Un moment de bonheur pur le jour du mariage' : 'A moment of pure happiness on the wedding day',
+      category: 'wedding',
+      type: 'image'
+    },
+    {
+      src: '/images/wedding&hubby/IMG-20170819-WA0025.jpg',
+      alt: 'Wedding ceremony moment',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Moment de la Cérémonie' : 'Ceremony Moment',
+      description: language === 'fr' ? 'Moment précieux durant la cérémonie de mariage' : 'Precious moment during the wedding ceremony',
+      category: 'wedding',
+      type: 'image'
+    },
 
     // Childhood
     {
@@ -276,6 +306,16 @@ export default function PhotoGalleryEnhanced() {
       height: 600,
       title: language === 'fr' ? 'Vie Professionnelle' : 'Professional Life',
       description: language === 'fr' ? 'Vie professionnelle de Joëlle' : 'Joëlle\'s professional life',
+      category: 'professional',
+      type: 'image'
+    },
+    {
+      src: '/images/professional/63253b96-5e5f-46d1-aae2-7acef19f4f55.jpg',
+      alt: 'Joëlle at professional event',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Événement Professionnel' : 'Professional Event',
+      description: language === 'fr' ? 'Joëlle lors d\'un événement professionnel' : 'Joëlle at a professional event',
       category: 'professional',
       type: 'image'
     },
@@ -461,6 +501,186 @@ export default function PhotoGalleryEnhanced() {
       category: 'family',
       type: 'image'
     },
+    {
+      src: '/images/family/20171124_101526.jpg',
+      alt: 'Family celebration moment',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Moment de Célébration Familiale' : 'Family Celebration Moment',
+      description: language === 'fr' ? 'Joëlle célébrant avec sa famille' : 'Joëlle celebrating with her family',
+      category: 'family',
+      type: 'image'
+    },
+    {
+      src: '/images/family/2ee465f2-91e9-4692-8b21-c75771a28bc2.jpg',
+      alt: 'Joëlle with family',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Joëlle en Famille' : 'Joëlle with Family',
+      description: language === 'fr' ? 'Un moment précieux en famille' : 'A precious moment with family',
+      category: 'family',
+      type: 'image'
+    },
+    {
+      src: '/images/family/3456b51b-024a-477a-b744-9a859ec990c8.jpg',
+      alt: 'Family gathering',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Réunion de Famille' : 'Family Gathering',
+      description: language === 'fr' ? 'Joëlle entourée de ses proches' : 'Joëlle surrounded by her loved ones',
+      category: 'family',
+      type: 'image'
+    },
+    {
+      src: '/images/family/40c72bef-b4c6-4d70-ab4b-5b12efb7f4b5.jpg',
+      alt: 'Joëlle and family members',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Joëlle et sa Famille' : 'Joëlle and Family Members',
+      description: language === 'fr' ? 'Moment heureux partagé en famille' : 'Happy moment shared with family',
+      category: 'family',
+      type: 'image'
+    },
+    {
+      src: '/images/family/6c0784e4-0e14-407d-9d26-2a756815d66e.jpg',
+      alt: 'Together with loved ones',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Avec les Êtres Chers' : 'Together with Loved Ones',
+      description: language === 'fr' ? 'Joëlle avec ceux qu\'elle aime' : 'Joëlle with those she loves',
+      category: 'family',
+      type: 'image'
+    },
+    {
+      src: '/images/family/937744b6-8926-494f-8e3e-ed7c8d8addde.jpg',
+      alt: 'Family portrait',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Portrait de Famille' : 'Family Portrait',
+      description: language === 'fr' ? 'Belle photo de famille avec Joëlle' : 'Beautiful family photo with Joëlle',
+      category: 'family',
+      type: 'image'
+    },
+    {
+      src: '/images/family/a0ed173a-83c4-4b01-a37e-879059d46e5d.jpg',
+      alt: 'Family time',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Temps en Famille' : 'Family Time',
+      description: language === 'fr' ? 'Joëlle passant du temps de qualité en famille' : 'Joëlle spending quality time with family',
+      category: 'family',
+      type: 'image'
+    },
+    {
+      src: '/images/family/a3b3efd2-5cac-433b-9d5c-e213ed9709e5.jpg',
+      alt: 'With relatives',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Avec la Famille' : 'With Relatives',
+      description: language === 'fr' ? 'Joëlle partageant un moment avec sa famille' : 'Joëlle sharing a moment with her relatives',
+      category: 'family',
+      type: 'image'
+    },
+    {
+      src: '/images/family/d98cc06a-a8eb-4668-b1c1-d4c9efce2664.jpg',
+      alt: 'Family love',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Amour Familial' : 'Family Love',
+      description: language === 'fr' ? 'L\'amour familial qui lie Joëlle aux siens' : 'The family love that binds Joëlle to her own',
+      category: 'family',
+      type: 'image'
+    },
+    {
+      src: '/images/family/ef6d0941-59d4-4d7d-b523-db5d7ea3fd12.jpg',
+      alt: 'Family moment',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Moment Familial' : 'Family Moment',
+      description: language === 'fr' ? 'Un instant capturé avec la famille' : 'A captured moment with family',
+      category: 'family',
+      type: 'image'
+    },
+    {
+      src: '/images/family/f12b01c5-0918-41fb-842f-b6ebd4d1d9b7.jpg',
+      alt: 'Joëlle with family members',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Avec les Membres de la Famille' : 'With Family Members',
+      description: language === 'fr' ? 'Joëlle entourée des membres de sa famille' : 'Joëlle surrounded by her family members',
+      category: 'family',
+      type: 'image'
+    },
+    {
+      src: '/images/family/IMG_1730.JPG',
+      alt: 'Family photo',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Photo Familiale' : 'Family Photo',
+      description: language === 'fr' ? 'Photo de famille mémorable' : 'Memorable family photo',
+      category: 'family',
+      type: 'image'
+    },
+    {
+      src: '/images/family/IMG_7240.JPG',
+      alt: 'Joëlle and relatives',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Joëlle et ses Proches' : 'Joëlle and Relatives',
+      description: language === 'fr' ? 'Joëlle avec des proches parents' : 'Joëlle with close relatives',
+      category: 'family',
+      type: 'image'
+    },
+    {
+      src: '/images/family/IMG_7253.JPG',
+      alt: 'Family bonding',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Liens Familiaux' : 'Family Bonding',
+      description: language === 'fr' ? 'Les liens familiaux précieux' : 'Precious family bonds',
+      category: 'family',
+      type: 'image'
+    },
+    {
+      src: '/images/family/IMG_7297.JPG',
+      alt: 'With extended family',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Avec la Famille Élargie' : 'With Extended Family',
+      description: language === 'fr' ? 'Joëlle avec sa famille élargie' : 'Joëlle with her extended family',
+      category: 'family',
+      type: 'image'
+    },
+    {
+      src: '/images/family/IMG-20220114-WA0082.jpg',
+      alt: 'Family gathering 2022',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Réunion Familiale 2022' : 'Family Gathering 2022',
+      description: language === 'fr' ? 'Un rassemblement familial en 2022' : 'A family gathering in 2022',
+      category: 'family',
+      type: 'image'
+    },
+    {
+      src: '/images/family/IMG-20240207-WA0010.jpg',
+      alt: 'Family moment 2024',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Moment Familial 2024' : 'Family Moment 2024',
+      description: language === 'fr' ? 'Un moment précieux en famille en 2024' : 'A precious family moment in 2024',
+      category: 'family',
+      type: 'image'
+    },
+    {
+      src: '/images/family/IMG-20240407-WA0013.jpg',
+      alt: 'Joëlle with family 2024',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Joëlle en Famille 2024' : 'Joëlle with Family 2024',
+      description: language === 'fr' ? 'Joëlle avec sa famille en avril 2024' : 'Joëlle with her family in April 2024',
+      category: 'family',
+      type: 'image'
+    },
 
     // Celebrations
     {
@@ -483,6 +703,46 @@ export default function PhotoGalleryEnhanced() {
       category: 'celebrations',
       type: 'image'
     },
+    {
+      src: '/images/celebrations/46206a31-f3ee-4383-8193-9277c49777d1.jpg',
+      alt: 'Joëlle at celebration',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Joëlle à une Célébration' : 'Joëlle at a Celebration',
+      description: language === 'fr' ? 'Joëlle participant à un événement festif' : 'Joëlle attending a festive event',
+      category: 'celebrations',
+      type: 'image'
+    },
+    {
+      src: '/images/celebrations/8edf4d3e-6ae9-4113-a51f-b62f365315d9.jpg',
+      alt: 'Celebrating with friends',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Célébration avec des Amis' : 'Celebrating with Friends',
+      description: language === 'fr' ? 'Joëlle célébrant avec ses amis' : 'Joëlle celebrating with her friends',
+      category: 'celebrations',
+      type: 'image'
+    },
+    {
+      src: '/images/celebrations/dbfed8b0-ac74-450e-ab90-e22137645b71.jpg',
+      alt: 'Festive moment',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Moment Festif' : 'Festive Moment',
+      description: language === 'fr' ? 'Joëlle lors d\'un moment de fête' : 'Joëlle at a festive moment',
+      category: 'celebrations',
+      type: 'image'
+    },
+    {
+      src: '/images/celebrations/dc9778cd-f63a-4534-8703-05dafdb1e440.jpg',
+      alt: 'Joyful celebration',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Célébration Joyeuse' : 'Joyful Celebration',
+      description: language === 'fr' ? 'Joëlle profitant d\'une célébration joyeuse' : 'Joëlle enjoying a joyful celebration',
+      category: 'celebrations',
+      type: 'image'
+    },
 
     // Video
     {
@@ -495,6 +755,17 @@ export default function PhotoGalleryEnhanced() {
       category: 'video',
       type: 'video',
       poster: '/images/family/IMG_8217.JPG' // Using a family photo as poster
+    },
+    {
+      src: '/images/video/20171124_101248.mp4',
+      alt: 'Joëlle with mother, grandmother, and sister Yolande singing for Kelilah',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Chant de Célébration pour Kelilah' : 'Celebration Song for Kelilah',
+      description: language === 'fr' ? 'Joëlle avec sa mère, sa grand-mère et sa sœur Yolande chantant pour célébrer la naissance de Kelilah' : 'Joëlle with her mother, grandmother, and sister Yolande singing to celebrate Kelilah\'s birth',
+      category: 'video',
+      type: 'video',
+      poster: '/images/family/20171124_101526.jpg' // Using the corresponding photo as poster
     },
   ];
 
@@ -518,12 +789,14 @@ export default function PhotoGalleryEnhanced() {
   // Prepare slides for lightbox
   const slides = filteredMedia.map(item => {
     if (item.type === 'video') {
+      // Determine video type based on file extension
+      const videoType = item.src.endsWith('.mp4') ? 'video/mp4' : 'video/quicktime';
       return {
         type: 'video' as const,
         sources: [
           {
             src: item.src,
-            type: 'video/quicktime',
+            type: videoType,
           },
         ],
         poster: item.poster,
