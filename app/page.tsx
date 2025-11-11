@@ -11,6 +11,7 @@ import LanguageToggle from "@/components/LanguageToggle";
 
 // Dynamic imports for components containing Firebase (heavy)
 const VirtualCandle = dynamic(() => import("@/components/VirtualCandle"), {
+  ssr: false,
   loading: () => (
     <section className="py-20 bg-gradient-to-b from-white to-[#f5f3f0]">
       <div className="container mx-auto px-4 text-center">
@@ -58,6 +59,7 @@ const TestimonialsEnhanced = dynamic(() => import("@/components/TestimonialsEnha
 });
 
 const MemorialDonation = dynamic(() => import("@/components/MemorialDonation"), {
+  ssr: false,
   loading: () => (
     <section className="py-20 bg-gradient-to-b from-[#f5f3f0] to-white">
       <div className="container mx-auto px-4 text-center">
