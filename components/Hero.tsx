@@ -1,9 +1,14 @@
 "use client";
 
+import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Hero() {
   const { t } = useLanguage();
+
+  // CONFIGURE YOUR MAIN PHOTO HERE:
+  // Change this path to use any photo from public/images/family/
+  const mainPhotoPath = '/images/family/IMG_7592.jpg'; // Joëlle with her mother
 
   return (
     <section
@@ -19,25 +24,20 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 container mx-auto px-4 text-center">
-        {/* Photo placeholder - user will add later */}
+        {/* Main Hero Photo */}
         <div
-          className="mb-8 mx-auto w-64 h-64 rounded-full bg-white/20 backdrop-blur-sm border-4 border-white shadow-2xl flex items-center justify-center overflow-hidden"
+          className="mb-8 mx-auto w-64 h-64 rounded-full bg-white/20 backdrop-blur-sm border-4 border-white shadow-2xl overflow-hidden"
           role="img"
-          aria-label="Profile photo placeholder for Joëlle Shekinah Tchami"
+          aria-label="Profile photo of Joëlle Shekinah Tchami"
         >
-          <div className="text-white/40 text-center p-8">
-            <svg
-              className="w-32 h-32 mx-auto mb-2"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-              role="img"
-              aria-label="Person icon placeholder"
-            >
-              <title>Profile photo will be added</title>
-              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-            </svg>
-            <p className="text-sm" aria-hidden="true">Photo will be added here</p>
-          </div>
+          <Image
+            src={mainPhotoPath}
+            alt="Joëlle Shekinah Tchami"
+            width={256}
+            height={256}
+            className="w-full h-full object-cover"
+            priority
+          />
         </div>
 
         <h1 className="text-5xl md:text-7xl font-bold mb-4" style={{textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)'}}>

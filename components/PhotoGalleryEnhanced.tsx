@@ -432,6 +432,26 @@ export default function PhotoGalleryEnhanced() {
       type: 'image'
     },
     {
+      src: '/images/family/8490df51-3bc1-4e2c-bfbb-70d845e2b5e0.jpg',
+      alt: 'Joëlle with her mom and Mama Alliance',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Joëlle avec Maman et Mama Alliance' : 'Joëlle with Mom and Mama Alliance',
+      description: language === 'fr' ? 'Photo prise à Buea avec sa mère et sa tante Mama Alliance' : 'Photo taken in Buea with her mother and aunt Mama Alliance',
+      category: 'family',
+      type: 'image'
+    },
+    {
+      src: '/images/family/rFQ2AbDVvEE6gdGC9EkwAx3gf8SYAXnkELSFmZwr.jpg',
+      alt: 'Joëlle, her mother, and her aunt',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Joëlle, Maman et Tante' : 'Joëlle, Mom and Aunt',
+      description: language === 'fr' ? 'Moment spécial à Buea avec sa mère et Mama Alliance' : 'Special moment in Buea with her mother and Mama Alliance',
+      category: 'family',
+      type: 'image'
+    },
+    {
       src: '/images/family/IMG-20190804-WA0000.jpg',
       alt: 'Joëlle in prayers',
       width: 800,
