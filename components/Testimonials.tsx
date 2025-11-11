@@ -13,11 +13,7 @@ import {
   doc,
   Timestamp
 } from 'firebase/firestore';
-import { Filter } from 'bad-words';
 import { useLanguage } from '@/contexts/LanguageContext';
-
-// Initialize profanity filter
-const filter = new Filter();
 
 // TypeScript interface for testimonial data
 interface Testimonial {
@@ -147,13 +143,6 @@ export default function Testimonials() {
     // Character limit check
     if (!isWithinCharacterLimit(message)) {
       setErrorMessage('Your message is too long. Please keep it under 500 words.');
-      setSubmitStatus('error');
-      return;
-    }
-
-    // Profanity check
-    if (filter.isProfane(name) || filter.isProfane(relationship) || filter.isProfane(message)) {
-      setErrorMessage('Your submission contains inappropriate language. Please revise and resubmit.');
       setSubmitStatus('error');
       return;
     }

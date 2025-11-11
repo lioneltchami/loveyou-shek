@@ -6,6 +6,7 @@ import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import { useLanguage } from '@/contexts/LanguageContext';
 import Video from "yet-another-react-lightbox/plugins/video";
+import photoMemories from '@/data/photo-memories.json';
 
 interface MediaItem {
   src: string;
@@ -17,6 +18,11 @@ interface MediaItem {
   category: string;
   type: 'image' | 'video';
   poster?: string; // Thumbnail for videos
+  memory?: {
+    story: string;
+    year?: number | null;
+    location?: string | null;
+  };
 }
 
 export default function PhotoGalleryEnhanced() {
@@ -24,6 +30,19 @@ export default function PhotoGalleryEnhanced() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [expandedMemory, setExpandedMemory] = useState(false);
+
+  // Helper function to get memory for a photo
+  const getMemoryForPhoto = (filename: string) => {
+    const photoData = photoMemories.photos[filename as keyof typeof photoMemories.photos];
+    if (!photoData) return null;
+
+    return {
+      story: language === 'fr' ? photoData.story_fr : photoData.story_en,
+      year: photoData.year,
+      location: photoData.location
+    };
+  };
 
   // All media organized by category
   const allMedia: MediaItem[] = [
@@ -383,6 +402,36 @@ export default function PhotoGalleryEnhanced() {
       type: 'image'
     },
     {
+      src: '/images/family/IMG_7587.jpg',
+      alt: 'Joëlle with her mother',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Joëlle avec sa Maman' : 'Joëlle with Her Mother',
+      description: language === 'fr' ? 'Joëlle et sa maman ensemble' : 'Joëlle and her mother together',
+      category: 'family',
+      type: 'image'
+    },
+    {
+      src: '/images/family/IMG_7589.jpg',
+      alt: 'Joëlle and her mother',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Joëlle et Maman' : 'Joëlle and Her Mother',
+      description: language === 'fr' ? 'Moment précieux avec sa mère' : 'Precious moment with her mother',
+      category: 'family',
+      type: 'image'
+    },
+    {
+      src: '/images/family/IMG_7592.jpg',
+      alt: 'Mother and daughter',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Mère et Fille' : 'Mother and Daughter',
+      description: language === 'fr' ? 'Joëlle avec sa mère bien-aimée' : 'Joëlle with her beloved mother',
+      category: 'family',
+      type: 'image'
+    },
+    {
       src: '/images/family/IMG-20190804-WA0000.jpg',
       alt: 'Joëlle in prayers',
       width: 800,
@@ -599,17 +648,76 @@ export default function PhotoGalleryEnhanced() {
               if (slide.type === 'video') {
                 return null; // Let the plugin handle video rendering
               }
+
+              // Get memory for current photo
+              const filename = currentItem?.src.split('/').pop() || '';
+              const memory = getMemoryForPhoto(filename);
+
               return (
-                <div className="flex flex-col items-center justify-center h-full">
+                <div className="flex flex-col items-center justify-center h-full max-w-4xl mx-auto">
                   <img
                     src={slide.src}
                     alt={slide.alt}
-                    className="max-h-[80vh] max-w-full object-contain"
+                    className="max-h-[60vh] max-w-full object-contain"
                   />
                   {currentItem && (
-                    <div className="mt-4 text-center px-4">
-                      <h3 className="text-xl font-semibold text-white mb-2">{currentItem.title}</h3>
-                      <p className="text-sm text-white/80">{currentItem.description}</p>
+                    <div className="mt-4 text-center px-6 max-w-3xl">
+                      <h3 className="text-2xl font-semibold text-white mb-2">{currentItem.title}</h3>
+                      <p className="text-sm text-white/80 mb-3">{currentItem.description}</p>
+
+                      {/* Memory Section */}
+                      {memory && (
+                        <div className="mt-4 text-left bg-black/30 rounded-lg p-4 backdrop-blur-sm">
+                          <button
+                            onClick={() => setExpandedMemory(!expandedMemory)}
+                            className="flex items-center justify-between w-full text-white hover:text-[#c4a585] transition-colors"
+                          >
+                            <span className="flex items-center gap-2 font-medium">
+                              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
+                              </svg>
+                              {language === 'fr' ? 'Lire l\'histoire' : 'Read the Story'}
+                            </span>
+                            <svg
+                              className={`w-5 h-5 transition-transform ${expandedMemory ? 'rotate-180' : ''}`}
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                            </svg>
+                          </button>
+
+                          {expandedMemory && (
+                            <div className="mt-3 pt-3 border-t border-white/20 animate-fade-in">
+                              <p className="text-white/90 text-sm leading-relaxed mb-3">
+                                {memory.story}
+                              </p>
+                              {(memory.year || memory.location) && (
+                                <div className="flex flex-wrap gap-3 text-xs text-white/70">
+                                  {memory.year && (
+                                    <span className="flex items-center gap-1">
+                                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                      </svg>
+                                      {memory.year}
+                                    </span>
+                                  )}
+                                  {memory.location && (
+                                    <span className="flex items-center gap-1">
+                                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                      </svg>
+                                      {memory.location}
+                                    </span>
+                                  )}
+                                </div>
+                              )}
+                            </div>
+                          )}
+                        </div>
+                      )}
                     </div>
                   )}
                 </div>
