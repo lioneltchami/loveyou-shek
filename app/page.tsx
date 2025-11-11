@@ -9,8 +9,20 @@ import Professional from "@/components/Professional";
 import Footer from "@/components/Footer";
 import LanguageToggle from "@/components/LanguageToggle";
 
-// Dynamic import for Testimonials component (contains Firebase - heavy)
-// Loading state shows skeleton loaders while component is being loaded
+// Dynamic imports for components containing Firebase (heavy)
+const VirtualCandle = dynamic(() => import("@/components/VirtualCandle"), {
+  loading: () => (
+    <section className="py-20 bg-gradient-to-b from-white to-[#f5f3f0]">
+      <div className="container mx-auto px-4 text-center">
+        <h2 className="text-4xl font-bold text-center mb-4 text-[#8b7355]">
+          Light a Candle
+        </h2>
+        <p className="text-gray-600 mb-12">Loading...</p>
+      </div>
+    </section>
+  ),
+});
+
 const TestimonialsEnhanced = dynamic(() => import("@/components/TestimonialsEnhanced"), {
   loading: () => (
     <section className="py-20 bg-gradient-to-b from-[#f5f3f0] to-white">
@@ -45,6 +57,19 @@ const TestimonialsEnhanced = dynamic(() => import("@/components/TestimonialsEnha
   ),
 });
 
+const MemorialDonation = dynamic(() => import("@/components/MemorialDonation"), {
+  loading: () => (
+    <section className="py-20 bg-gradient-to-b from-[#f5f3f0] to-white">
+      <div className="container mx-auto px-4 text-center">
+        <h2 className="text-3xl font-bold text-center mb-4 text-[#8b7355]">
+          Honor Her Memory
+        </h2>
+        <p className="text-gray-600">Loading...</p>
+      </div>
+    </section>
+  ),
+});
+
 export default function Home() {
   return (
     <>
@@ -64,7 +89,9 @@ export default function Home() {
         <Timeline />
         <Professional />
         <PhotoGalleryEnhanced />
+        <VirtualCandle />
         <TestimonialsEnhanced />
+        <MemorialDonation />
         <Footer />
       </main>
     </>
