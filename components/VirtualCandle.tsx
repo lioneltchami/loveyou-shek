@@ -70,11 +70,16 @@ export default function VirtualCandle() {
 
       setShowModal(false);
       setVisitorName('');
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error lighting candle:', error);
-      alert(language === 'fr'
-        ? 'Erreur lors de l\'allumage de la bougie. Veuillez réessayer.'
-        : 'Error lighting candle. Please try again.');
+
+      // Show detailed error for debugging
+      const errorMessage = error?.message || 'Unknown error';
+      const detailedMsg = language === 'fr'
+        ? `Erreur: ${errorMessage}\n\nVérifiez les règles de sécurité Firestore.`
+        : `Error: ${errorMessage}\n\nCheck Firestore security rules.`;
+
+      alert(detailedMsg);
     } finally {
       setIsLighting(false);
     }
