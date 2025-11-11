@@ -57,10 +57,18 @@ export default function VirtualCandle() {
   }, []);
 
   const handleLightCandle = async () => {
+    // Validate name is required
+    if (!visitorName.trim()) {
+      alert(language === 'fr'
+        ? 'Veuillez entrer votre nom pour allumer une bougie.'
+        : 'Please enter your name to light a candle.');
+      return;
+    }
+
     setIsLighting(true);
     try {
       await addDoc(collection(db, 'candles'), {
-        name: visitorName.trim() || null,
+        name: visitorName.trim(),
         litAt: serverTimestamp(),
       });
 
@@ -174,7 +182,7 @@ export default function VirtualCandle() {
                 >
                   <div className="text-3xl mb-2 animate-flicker">🕯️</div>
                   <p className="text-sm font-semibold text-gray-800 text-center truncate w-full">
-                    {candle.name || (language === 'fr' ? 'Anonyme' : 'Anonymous')}
+                    {candle.name}
                   </p>
                   <p className="text-xs text-gray-500 mt-1">
                     {formatDate(candle.litAt)}
@@ -210,7 +218,8 @@ export default function VirtualCandle() {
 
             <div className="mb-6">
               <label htmlFor="candle-name" className="block text-gray-700 font-medium mb-2 text-sm">
-                {language === 'fr' ? 'Votre nom (optionnel)' : 'Your name (optional)'}
+                {language === 'fr' ? 'Votre nom (requis)' : 'Your name (required)'}
+                <span className="text-red-500 ml-1">*</span>
               </label>
               <input
                 type="text"
@@ -218,14 +227,15 @@ export default function VirtualCandle() {
                 value={visitorName}
                 onChange={(e) => setVisitorName(e.target.value)}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8b7355] focus:border-transparent outline-none transition-all"
-                placeholder={language === 'fr' ? 'Votre nom' : 'Your name'}
+                placeholder={language === 'fr' ? 'Entrez votre nom' : 'Enter your name'}
                 maxLength={50}
                 disabled={isLighting}
+                required
               />
               <p className="text-xs text-gray-500 mt-1">
                 {language === 'fr'
-                  ? 'Laissez vide pour rester anonyme'
-                  : 'Leave blank to remain anonymous'}
+                  ? 'Votre nom sera affiché avec la bougie'
+                  : 'Your name will be displayed with the candle'}
               </p>
             </div>
 

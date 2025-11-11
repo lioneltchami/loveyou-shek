@@ -30,25 +30,25 @@ export default function PhotoGalleryEnhanced() {
     // Wedding & Hubby
     {
       src: '/images/wedding&hubby/IMG-20170819-WA0015.jpg',
-      alt: 'Joëlle and Olivier wedding ceremony',
+      alt: 'Joëlle in her wedding dress',
       width: 800,
       height: 600,
-      title: language === 'fr' ? 'Cérémonie de Mariage' : 'Wedding Ceremony',
+      title: language === 'fr' ? 'Joëlle en Robe de Mariée' : 'Joëlle in Her Wedding Dress',
       description: language === 'fr'
-        ? "Beau moment de la cérémonie de mariage de Joëlle et Olivier en juin 2017"
-        : "Beautiful moment from Joëlle and Olivier's wedding ceremony in June 2017",
+        ? "Joëlle magnifique dans sa robe de mariée en juin 2017"
+        : "Joëlle beautiful in her wedding dress in June 2017",
       category: 'wedding',
       type: 'image'
     },
     {
       src: '/images/wedding&hubby/IMG_1751.JPG',
-      alt: 'Joëlle and Olivier wedding celebration',
+      alt: 'Joëlle court wedding with Olivier',
       width: 800,
       height: 600,
-      title: language === 'fr' ? 'Célébration de Mariage' : 'Wedding Celebration',
+      title: language === 'fr' ? 'Mariage Civil avec Olivier' : 'Court Wedding with Olivier',
       description: language === 'fr'
-        ? 'Joyeuse célébration avec la famille et les amis'
-        : 'Joyful celebration with family and friends',
+        ? 'Joëlle et Olivier lors de leur mariage civil'
+        : 'Joëlle and Olivier at their court wedding',
       category: 'wedding',
       type: 'image'
     },
@@ -150,31 +150,31 @@ export default function PhotoGalleryEnhanced() {
     },
     {
       src: '/images/education/IMG_0032.jpg',
-      alt: 'University life',
+      alt: 'Joëlle as student at Lycée de Buea',
       width: 800,
       height: 600,
-      title: language === 'fr' ? 'Vie Universitaire' : 'University Life',
-      description: language === 'fr' ? 'À l\'université' : 'At university',
+      title: language === 'fr' ? 'Étudiante au Lycée de Buea' : 'Student at Lycée de Buea',
+      description: language === 'fr' ? 'Joëlle en tant qu\'étudiante au Lycée de Buea' : 'Joëlle as a student at Lycée de Buea',
       category: 'education',
       type: 'image'
     },
     {
       src: '/images/education/IMG_0088.jpg',
-      alt: 'Academic journey',
+      alt: 'Joëlle graduation with parents',
       width: 800,
       height: 600,
-      title: language === 'fr' ? 'Parcours Académique' : 'Academic Journey',
-      description: language === 'fr' ? 'Durant les études' : 'During studies',
+      title: language === 'fr' ? 'Diplômation avec Papa et Maman' : 'Graduation with Dad and Mom',
+      description: language === 'fr' ? 'Photo de diplômation de Joëlle avec son père et sa mère' : 'Joëlle\'s graduation photo with her dad and mom',
       category: 'education',
       type: 'image'
     },
     {
       src: '/images/education/IMG_0093.jpg',
-      alt: 'Student years',
+      alt: 'Joëlle graduation with dad',
       width: 800,
       height: 600,
-      title: language === 'fr' ? 'Années Étudiantes' : 'Student Years',
-      description: language === 'fr' ? 'En tant qu\'étudiante' : 'As a student',
+      title: language === 'fr' ? 'Diplômation avec Papa' : 'Graduation with Dad',
+      description: language === 'fr' ? 'Photo de diplômation de Joëlle avec son père' : 'Joëlle\'s graduation photo with her dad',
       category: 'education',
       type: 'image'
     },
@@ -202,11 +202,11 @@ export default function PhotoGalleryEnhanced() {
     // Professional
     {
       src: '/images/professional/IMG_0020.jpg',
-      alt: 'Professional work',
+      alt: 'Joëlle interpreting at Full Gospel Buea',
       width: 800,
       height: 600,
-      title: language === 'fr' ? 'Travail Professionnel' : 'Professional Work',
-      description: language === 'fr' ? 'Joëlle au travail' : 'Joëlle at work',
+      title: language === 'fr' ? 'Interprète à Full Gospel Buea' : 'Interpreting at Full Gospel Buea',
+      description: language === 'fr' ? 'Joëlle en train d\'interpréter à Full Gospel Buea' : 'Joëlle interpreting at Full Gospel Buea',
       category: 'professional',
       type: 'image'
     },
@@ -264,11 +264,11 @@ export default function PhotoGalleryEnhanced() {
     // Family
     {
       src: '/images/family/100_7293.JPG',
-      alt: 'Family moment',
+      alt: 'Joëlle reading her Bible',
       width: 800,
       height: 600,
-      title: language === 'fr' ? 'Moment en Famille' : 'Family Moment',
-      description: language === 'fr' ? 'Joëlle avec sa famille' : 'Joëlle with her family',
+      title: language === 'fr' ? 'Joëlle Lisant sa Bible' : 'Joëlle Reading Her Bible',
+      description: language === 'fr' ? 'Joëlle en train de lire sa Bible comme toujours' : 'Joëlle reading her Bible as always',
       category: 'family',
       type: 'image'
     },
@@ -294,11 +294,11 @@ export default function PhotoGalleryEnhanced() {
     },
     {
       src: '/images/family/a64cbb24-5d02-44c0-9cdf-ec740ad85398.jpg',
-      alt: 'Family time',
+      alt: 'Joëlle celebrating dad\'s birthday',
       width: 800,
       height: 600,
-      title: language === 'fr' ? 'Temps en Famille' : 'Family Time',
-      description: language === 'fr' ? 'Moments en famille' : 'Family moments',
+      title: language === 'fr' ? 'Anniversaire de Papa' : 'Celebrating Dad\'s Birthday',
+      description: language === 'fr' ? 'Joëlle célébrant l\'anniversaire de son papa' : 'Joëlle celebrating her papa\'s birthday',
       category: 'family',
       type: 'image'
     },
@@ -324,11 +324,11 @@ export default function PhotoGalleryEnhanced() {
     },
     {
       src: '/images/family/Image (165).jpg',
-      alt: 'Family memories',
+      alt: 'Joëlle with sister Estelle',
       width: 800,
       height: 600,
-      title: language === 'fr' ? 'Souvenirs Familiaux' : 'Family Memories',
-      description: language === 'fr' ? 'Souvenirs de famille' : 'Family memories',
+      title: language === 'fr' ? 'Joëlle avec sa Sœur Estelle' : 'Joëlle with Sister Estelle',
+      description: language === 'fr' ? 'Joëlle prenant une photo avec sa sœur Estelle' : 'Joëlle taking photo with her sister Estelle',
       category: 'family',
       type: 'image'
     },
@@ -364,11 +364,11 @@ export default function PhotoGalleryEnhanced() {
     },
     {
       src: '/images/family/IMG_8217.JPG',
-      alt: 'With relatives',
+      alt: 'With her father',
       width: 800,
       height: 600,
-      title: language === 'fr' ? 'Avec les Proches' : 'With Relatives',
-      description: language === 'fr' ? 'Joëlle avec ses proches' : 'Joëlle with relatives',
+      title: language === 'fr' ? 'Avec Son Père' : 'With Her Father',
+      description: language === 'fr' ? 'Joëlle avec son père' : 'Joëlle with her father',
       category: 'family',
       type: 'image'
     },
@@ -384,11 +384,11 @@ export default function PhotoGalleryEnhanced() {
     },
     {
       src: '/images/family/IMG-20190804-WA0000.jpg',
-      alt: 'Family moment 2019',
+      alt: 'Joëlle in prayers',
       width: 800,
       height: 600,
-      title: language === 'fr' ? 'Moment Familial 2019' : 'Family Moment 2019',
-      description: language === 'fr' ? 'Famille en 2019' : 'Family in 2019',
+      title: language === 'fr' ? 'Joëlle en Prière' : 'Joëlle in Prayer',
+      description: language === 'fr' ? 'Joëlle sérieuse en prières, comme toujours' : 'Joëlle serious in prayers, as always',
       category: 'family',
       type: 'image'
     },
@@ -396,11 +396,11 @@ export default function PhotoGalleryEnhanced() {
     // Celebrations
     {
       src: '/images/celebrations/IMG_8466.JPG',
-      alt: 'Celebration',
+      alt: 'Joëlle at brother\'s wedding',
       width: 800,
       height: 600,
-      title: language === 'fr' ? 'Célébration' : 'Celebration',
-      description: language === 'fr' ? 'Moment de célébration' : 'Celebration moment',
+      title: language === 'fr' ? 'Au Mariage de son Frère' : 'At Her Brother\'s Wedding',
+      description: language === 'fr' ? 'Joëlle au mariage de son frère à Limbé' : 'Joëlle at her brother\'s wedding in Limbe',
       category: 'celebrations',
       type: 'image'
     },
@@ -418,11 +418,11 @@ export default function PhotoGalleryEnhanced() {
     // Video
     {
       src: '/images/video/IMG_8594.MOV',
-      alt: 'Video memory',
+      alt: 'Joëlle cooking with her mother',
       width: 800,
       height: 600,
-      title: language === 'fr' ? 'Souvenir Vidéo' : 'Video Memory',
-      description: language === 'fr' ? 'Vidéo de Joëlle' : 'Video of Joëlle',
+      title: language === 'fr' ? 'Joëlle Cuisinant avec Maman' : 'Joëlle Cooking with Her Mother',
+      description: language === 'fr' ? 'Joëlle cuisinant avec sa mère' : 'Joëlle cooking with her mother',
       category: 'video',
       type: 'video',
       poster: '/images/family/IMG_8217.JPG' // Using a family photo as poster
