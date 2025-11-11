@@ -20,31 +20,31 @@ export default function PhotoGalleryEnhanced() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  // Wedding photos with metadata
+  // Wedding photos with metadata - using direct text since translations are showing keys
   const photos: Photo[] = [
     {
       src: '/images/wedding/IMG-20170819-WA0015.jpg',
       alt: 'Joëlle and Lionel wedding ceremony',
       width: 800,
       height: 600,
-      title: t('gallery.photos.wedding1.title') || 'Wedding Ceremony',
-      description: t('gallery.photos.wedding1.description') || 'Beautiful moment from the wedding ceremony'
+      title: 'Wedding Ceremony',
+      description: "Beautiful moment from Joëlle and Lionel's wedding ceremony in June 2017"
     },
     {
       src: '/images/wedding/IMG_1751.JPG',
       alt: 'Joëlle and Lionel wedding celebration',
       width: 800,
       height: 600,
-      title: t('gallery.photos.wedding2.title') || 'Wedding Celebration',
-      description: t('gallery.photos.wedding2.description') || 'Joyful celebration with family and friends'
+      title: 'Wedding Celebration',
+      description: 'Joyful celebration with family and friends'
     },
     {
       src: '/images/wedding/IMG_1914.JPG',
       alt: 'Joëlle and Lionel wedding portrait',
       width: 800,
       height: 600,
-      title: t('gallery.photos.wedding3.title') || 'Wedding Portrait',
-      description: t('gallery.photos.wedding3.description') || 'Beautiful wedding portrait'
+      title: 'Wedding Portrait',
+      description: 'Beautiful wedding portrait of the happy couple'
     }
   ];
 
