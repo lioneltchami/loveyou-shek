@@ -608,8 +608,8 @@ export const translations = {
           fr: "Cérémonie de Mariage"
         },
         description: {
-          en: "Beautiful moment from Joëlle and Lionel's wedding ceremony in June 2017",
-          fr: "Beau moment de la cérémonie de mariage de Joëlle et Lionel en juin 2017"
+          en: "Beautiful moment from Joëlle and Olivier's wedding ceremony in June 2017",
+          fr: "Beau moment de la cérémonie de mariage de Joëlle et Olivier en juin 2017"
         }
       },
       wedding2: {

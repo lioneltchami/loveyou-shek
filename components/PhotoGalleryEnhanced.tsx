@@ -24,17 +24,17 @@ export default function PhotoGalleryEnhanced() {
   const photos: Photo[] = [
     {
       src: '/images/wedding/IMG-20170819-WA0015.jpg',
-      alt: 'Joëlle and Lionel wedding ceremony',
+      alt: 'Joëlle and Olivier wedding ceremony',
       width: 800,
       height: 600,
       title: language === 'fr' ? 'Cérémonie de Mariage' : 'Wedding Ceremony',
       description: language === 'fr'
-        ? "Beau moment de la cérémonie de mariage de Joëlle et Lionel en juin 2017"
-        : "Beautiful moment from Joëlle and Lionel's wedding ceremony in June 2017"
+        ? "Beau moment de la cérémonie de mariage de Joëlle et Olivier en juin 2017"
+        : "Beautiful moment from Joëlle and Olivier's wedding ceremony in June 2017"
     },
     {
       src: '/images/wedding/IMG_1751.JPG',
-      alt: 'Joëlle and Lionel wedding celebration',
+      alt: 'Joëlle and Olivier wedding celebration',
       width: 800,
       height: 600,
       title: language === 'fr' ? 'Célébration de Mariage' : 'Wedding Celebration',
@@ -44,7 +44,7 @@ export default function PhotoGalleryEnhanced() {
     },
     {
       src: '/images/wedding/IMG_1914.JPG',
-      alt: 'Joëlle and Lionel wedding portrait',
+      alt: 'Joëlle and Olivier wedding portrait',
       width: 800,
       height: 600,
       title: language === 'fr' ? 'Portrait de Mariage' : 'Wedding Portrait',
