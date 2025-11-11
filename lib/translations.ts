@@ -600,6 +600,38 @@ export const translations = {
         en: "See the <code class=\"bg-gray-100 px-2 py-1 rounded text-sm\">README.md</code> and <code class=\"bg-gray-100 px-2 py-1 rounded text-sm\">SETUP_GUIDE.md</code> files for detailed instructions with code examples",
         fr: "Consultez les fichiers <code class=\"bg-gray-100 px-2 py-1 rounded text-sm\">README.md</code> et <code class=\"bg-gray-100 px-2 py-1 rounded text-sm\">SETUP_GUIDE.md</code> pour des instructions détaillées avec des exemples de code"
       }
+    },
+    photos: {
+      wedding1: {
+        title: {
+          en: "Wedding Ceremony",
+          fr: "Cérémonie de Mariage"
+        },
+        description: {
+          en: "Beautiful moment from Joëlle and Lionel's wedding ceremony in June 2017",
+          fr: "Beau moment de la cérémonie de mariage de Joëlle et Lionel en juin 2017"
+        }
+      },
+      wedding2: {
+        title: {
+          en: "Wedding Celebration",
+          fr: "Célébration de Mariage"
+        },
+        description: {
+          en: "Joyful celebration with family and friends",
+          fr: "Joyeuse célébration avec la famille et les amis"
+        }
+      },
+      wedding3: {
+        title: {
+          en: "Wedding Portrait",
+          fr: "Portrait de Mariage"
+        },
+        description: {
+          en: "Beautiful wedding portrait of the happy couple",
+          fr: "Beau portrait de mariage du couple heureux"
+        }
+      }
     }
   },
 

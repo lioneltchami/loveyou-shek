@@ -4,14 +4,14 @@ import dynamic from 'next/dynamic';
 import Hero from "@/components/Hero";
 import Biography from "@/components/Biography";
 import Timeline from "@/components/Timeline";
-import PhotoGallery from "@/components/PhotoGallery";
+import PhotoGalleryEnhanced from "@/components/PhotoGalleryEnhanced";
 import Professional from "@/components/Professional";
 import Footer from "@/components/Footer";
 import LanguageToggle from "@/components/LanguageToggle";
 
 // Dynamic import for Testimonials component (contains Firebase - heavy)
 // Loading state shows skeleton loaders while component is being loaded
-const Testimonials = dynamic(() => import("@/components/Testimonials"), {
+const TestimonialsEnhanced = dynamic(() => import("@/components/TestimonialsEnhanced"), {
   loading: () => (
     <section className="py-20 bg-gradient-to-b from-[#f5f3f0] to-white">
       <div className="container mx-auto px-4">
@@ -63,8 +63,8 @@ export default function Home() {
         <Biography />
         <Timeline />
         <Professional />
-        <PhotoGallery />
-        <Testimonials />
+        <PhotoGalleryEnhanced />
+        <TestimonialsEnhanced />
         <Footer />
       </main>
     </>
