@@ -297,6 +297,8 @@ export default function Testimonials() {
                 required
               >
                 <option value="">{t('testimonials.form.relationshipPlaceholder')}</option>
+                <option value="Mother">Mother</option>
+                <option value="Father">Father</option>
                 <option value="Daughter">Daughter</option>
                 <option value="Son">Son</option>
                 <option value="Brother">Brother</option>
