@@ -142,12 +142,7 @@ export default function VirtualCandle() {
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-3 bg-white rounded-full px-8 py-4 shadow-lg">
             <span className="text-4xl">🕯️</span>
-            <div className="text-left">
-              <p className="text-3xl font-bold text-[#8b7355]">{totalCandles.toLocaleString()}</p>
-              <p className="text-sm text-gray-600">
-                {language === 'fr' ? 'bougies allumées' : 'candles lit'}
-              </p>
-            </div>
+            <p className="text-3xl font-bold text-[#8b7355]">{totalCandles.toLocaleString()}</p>
           </div>
         </div>
 
