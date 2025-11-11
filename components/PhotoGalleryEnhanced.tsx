@@ -5,60 +5,466 @@ import Image from 'next/image';
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import { useLanguage } from '@/contexts/LanguageContext';
+import Video from "yet-another-react-lightbox/plugins/video";
 
-interface Photo {
+interface MediaItem {
   src: string;
   alt: string;
   width: number;
   height: number;
   title: string;
   description: string;
+  category: string;
+  type: 'image' | 'video';
+  poster?: string; // Thumbnail for videos
 }
 
 export default function PhotoGalleryEnhanced() {
   const { t, language } = useLanguage();
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
-  // Wedding photos with bilingual metadata
-  const photos: Photo[] = [
+  // All media organized by category
+  const allMedia: MediaItem[] = [
+    // Wedding & Hubby
     {
-      src: '/images/wedding/IMG-20170819-WA0015.jpg',
+      src: '/images/wedding&hubby/IMG-20170819-WA0015.jpg',
       alt: 'Joëlle and Olivier wedding ceremony',
       width: 800,
       height: 600,
       title: language === 'fr' ? 'Cérémonie de Mariage' : 'Wedding Ceremony',
       description: language === 'fr'
         ? "Beau moment de la cérémonie de mariage de Joëlle et Olivier en juin 2017"
-        : "Beautiful moment from Joëlle and Olivier's wedding ceremony in June 2017"
+        : "Beautiful moment from Joëlle and Olivier's wedding ceremony in June 2017",
+      category: 'wedding',
+      type: 'image'
     },
     {
-      src: '/images/wedding/IMG_1751.JPG',
+      src: '/images/wedding&hubby/IMG_1751.JPG',
       alt: 'Joëlle and Olivier wedding celebration',
       width: 800,
       height: 600,
       title: language === 'fr' ? 'Célébration de Mariage' : 'Wedding Celebration',
       description: language === 'fr'
         ? 'Joyeuse célébration avec la famille et les amis'
-        : 'Joyful celebration with family and friends'
+        : 'Joyful celebration with family and friends',
+      category: 'wedding',
+      type: 'image'
     },
     {
-      src: '/images/wedding/IMG_1914.JPG',
+      src: '/images/wedding&hubby/IMG_1914.JPG',
       alt: 'Joëlle and Olivier wedding portrait',
       width: 800,
       height: 600,
       title: language === 'fr' ? 'Portrait de Mariage' : 'Wedding Portrait',
       description: language === 'fr'
         ? 'Beau portrait de mariage du couple heureux'
-        : 'Beautiful wedding portrait of the happy couple'
-    }
+        : 'Beautiful wedding portrait of the happy couple',
+      category: 'wedding',
+      type: 'image'
+    },
+    {
+      src: '/images/wedding&hubby/IMG_1682.JPG',
+      alt: 'Wedding moment',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Moment de Mariage' : 'Wedding Moment',
+      description: language === 'fr' ? 'Moment spécial du mariage' : 'Special wedding moment',
+      category: 'wedding',
+      type: 'image'
+    },
+    {
+      src: '/images/wedding&hubby/0af85f88-bdbe-441d-8878-3a561c61460f.jpg',
+      alt: 'With Olivier',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Avec Olivier' : 'With Olivier',
+      description: language === 'fr' ? 'Joëlle et Olivier ensemble' : 'Joëlle and Olivier together',
+      category: 'wedding',
+      type: 'image'
+    },
+    {
+      src: '/images/wedding&hubby/45ebc884-2343-4fc4-83f9-ee2e547e372a.jpg',
+      alt: 'Couple moment',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Moment en Couple' : 'Couple Moment',
+      description: language === 'fr' ? 'Joëlle et Olivier' : 'Joëlle and Olivier',
+      category: 'wedding',
+      type: 'image'
+    },
+
+    // Childhood
+    {
+      src: '/images/childhood/2.jpg',
+      alt: 'Young Joëlle',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Jeunesse' : 'Childhood',
+      description: language === 'fr' ? 'Joëlle enfant' : 'Young Joëlle',
+      category: 'childhood',
+      type: 'image'
+    },
+    {
+      src: '/images/childhood/Image (132).jpg',
+      alt: 'Childhood memories',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Souvenirs d\'Enfance' : 'Childhood Memories',
+      description: language === 'fr' ? 'Photo d\'enfance de Joëlle' : 'Joëlle as a child',
+      category: 'childhood',
+      type: 'image'
+    },
+    {
+      src: '/images/childhood/Image (168).jpg',
+      alt: 'Young years',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Jeunes Années' : 'Young Years',
+      description: language === 'fr' ? 'Joëlle dans sa jeunesse' : 'Joëlle in her youth',
+      category: 'childhood',
+      type: 'image'
+    },
+    {
+      src: '/images/childhood/Picture 116.jpg',
+      alt: 'Early years',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Premières Années' : 'Early Years',
+      description: language === 'fr' ? 'Les premières années de Joëlle' : 'Joëlle\'s early years',
+      category: 'childhood',
+      type: 'image'
+    },
+
+    // Education
+    {
+      src: '/images/education/IMG_0029.jpg',
+      alt: 'School days',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Années Scolaires' : 'School Days',
+      description: language === 'fr' ? 'Joëlle durant ses études' : 'Joëlle during her studies',
+      category: 'education',
+      type: 'image'
+    },
+    {
+      src: '/images/education/IMG_0032.jpg',
+      alt: 'University life',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Vie Universitaire' : 'University Life',
+      description: language === 'fr' ? 'À l\'université' : 'At university',
+      category: 'education',
+      type: 'image'
+    },
+    {
+      src: '/images/education/IMG_0088.jpg',
+      alt: 'Academic journey',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Parcours Académique' : 'Academic Journey',
+      description: language === 'fr' ? 'Durant les études' : 'During studies',
+      category: 'education',
+      type: 'image'
+    },
+    {
+      src: '/images/education/IMG_0093.jpg',
+      alt: 'Student years',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Années Étudiantes' : 'Student Years',
+      description: language === 'fr' ? 'En tant qu\'étudiante' : 'As a student',
+      category: 'education',
+      type: 'image'
+    },
+    {
+      src: '/images/education/IMG_0095.jpg',
+      alt: 'Education memories',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Souvenirs d\'Études' : 'Education Memories',
+      description: language === 'fr' ? 'Souvenirs universitaires' : 'University memories',
+      category: 'education',
+      type: 'image'
+    },
+    {
+      src: '/images/education/Picture 056_New1.jpg',
+      alt: 'Graduation',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Diplômation' : 'Graduation',
+      description: language === 'fr' ? 'Moment de diplômation' : 'Graduation moment',
+      category: 'education',
+      type: 'image'
+    },
+
+    // Professional
+    {
+      src: '/images/professional/IMG_0020.jpg',
+      alt: 'Professional work',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Travail Professionnel' : 'Professional Work',
+      description: language === 'fr' ? 'Joëlle au travail' : 'Joëlle at work',
+      category: 'professional',
+      type: 'image'
+    },
+    {
+      src: '/images/professional/IMG-20160711-WA0014.jpg',
+      alt: 'Interpreting',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Interprétation' : 'Interpreting',
+      description: language === 'fr' ? 'Joëlle en tant qu\'interprète' : 'Joëlle as interpreter',
+      category: 'professional',
+      type: 'image'
+    },
+    {
+      src: '/images/professional/IMG-20160711-WA0017.jpg',
+      alt: 'Conference work',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Travail en Conférence' : 'Conference Work',
+      description: language === 'fr' ? 'Lors d\'une conférence' : 'At a conference',
+      category: 'professional',
+      type: 'image'
+    },
+    {
+      src: '/images/professional/5c6e00f3-ddc7-445b-bf66-886c61802f0b.jpg',
+      alt: 'Professional setting',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Cadre Professionnel' : 'Professional Setting',
+      description: language === 'fr' ? 'Dans un cadre professionnel' : 'In professional setting',
+      category: 'professional',
+      type: 'image'
+    },
+    {
+      src: '/images/professional/d14adad9-6925-4914-a656-3746c2df295c.jpg',
+      alt: 'At work',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Au Travail' : 'At Work',
+      description: language === 'fr' ? 'Joëlle dans son travail' : 'Joëlle in her work',
+      category: 'professional',
+      type: 'image'
+    },
+    {
+      src: '/images/professional/ff434f6a-ec31-41a4-aea2-fb36597a7a09.jpg',
+      alt: 'Professional life',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Vie Professionnelle' : 'Professional Life',
+      description: language === 'fr' ? 'Vie professionnelle de Joëlle' : 'Joëlle\'s professional life',
+      category: 'professional',
+      type: 'image'
+    },
+
+    // Family
+    {
+      src: '/images/family/100_7293.JPG',
+      alt: 'Family moment',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Moment en Famille' : 'Family Moment',
+      description: language === 'fr' ? 'Joëlle avec sa famille' : 'Joëlle with her family',
+      category: 'family',
+      type: 'image'
+    },
+    {
+      src: '/images/family/106be468-4920-4485-8332-c9d7d0815454.jpg',
+      alt: 'With loved ones',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Avec les Proches' : 'With Loved Ones',
+      description: language === 'fr' ? 'Entourée de ses proches' : 'Surrounded by loved ones',
+      category: 'family',
+      type: 'image'
+    },
+    {
+      src: '/images/family/20250509_185812.jpg',
+      alt: 'Family gathering',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Rassemblement Familial' : 'Family Gathering',
+      description: language === 'fr' ? 'Réunion de famille' : 'Family reunion',
+      category: 'family',
+      type: 'image'
+    },
+    {
+      src: '/images/family/a64cbb24-5d02-44c0-9cdf-ec740ad85398.jpg',
+      alt: 'Family time',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Temps en Famille' : 'Family Time',
+      description: language === 'fr' ? 'Moments en famille' : 'Family moments',
+      category: 'family',
+      type: 'image'
+    },
+    {
+      src: '/images/family/afcfd5d8-80fd-4845-b6b8-4dbfe91a3b31.jpg',
+      alt: 'With family',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'En Famille' : 'With Family',
+      description: language === 'fr' ? 'Joëlle en famille' : 'Joëlle with family',
+      category: 'family',
+      type: 'image'
+    },
+    {
+      src: '/images/family/DSC03387.JPG',
+      alt: 'Family photo',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Photo de Famille' : 'Family Photo',
+      description: language === 'fr' ? 'Belle photo de famille' : 'Beautiful family photo',
+      category: 'family',
+      type: 'image'
+    },
+    {
+      src: '/images/family/Image (165).jpg',
+      alt: 'Family memories',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Souvenirs Familiaux' : 'Family Memories',
+      description: language === 'fr' ? 'Souvenirs de famille' : 'Family memories',
+      category: 'family',
+      type: 'image'
+    },
+    {
+      src: '/images/family/IMG_0064.jpg',
+      alt: 'Together',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Ensemble' : 'Together',
+      description: language === 'fr' ? 'Tous ensemble' : 'All together',
+      category: 'family',
+      type: 'image'
+    },
+    {
+      src: '/images/family/IMG_0265.JPG',
+      alt: 'Family bond',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Liens Familiaux' : 'Family Bond',
+      description: language === 'fr' ? 'Liens de famille forts' : 'Strong family bonds',
+      category: 'family',
+      type: 'image'
+    },
+    {
+      src: '/images/family/IMG_0446.JPG',
+      alt: 'Family love',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Amour Familial' : 'Family Love',
+      description: language === 'fr' ? 'L\'amour de la famille' : 'Family love',
+      category: 'family',
+      type: 'image'
+    },
+    {
+      src: '/images/family/IMG_8217.JPG',
+      alt: 'With relatives',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Avec les Proches' : 'With Relatives',
+      description: language === 'fr' ? 'Joëlle avec ses proches' : 'Joëlle with relatives',
+      category: 'family',
+      type: 'image'
+    },
+    {
+      src: '/images/family/IMG_8945.webp',
+      alt: 'Family celebration',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Célébration Familiale' : 'Family Celebration',
+      description: language === 'fr' ? 'Célébration en famille' : 'Celebrating with family',
+      category: 'family',
+      type: 'image'
+    },
+    {
+      src: '/images/family/IMG-20190804-WA0000.jpg',
+      alt: 'Family moment 2019',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Moment Familial 2019' : 'Family Moment 2019',
+      description: language === 'fr' ? 'Famille en 2019' : 'Family in 2019',
+      category: 'family',
+      type: 'image'
+    },
+
+    // Celebrations
+    {
+      src: '/images/celebrations/IMG_8466.JPG',
+      alt: 'Celebration',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Célébration' : 'Celebration',
+      description: language === 'fr' ? 'Moment de célébration' : 'Celebration moment',
+      category: 'celebrations',
+      type: 'image'
+    },
+    {
+      src: '/images/celebrations/IMG-20170819-WA0006.jpg',
+      alt: 'Special occasion',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Occasion Spéciale' : 'Special Occasion',
+      description: language === 'fr' ? 'Une occasion spéciale' : 'A special occasion',
+      category: 'celebrations',
+      type: 'image'
+    },
+
+    // Video
+    {
+      src: '/images/video/IMG_8594.MOV',
+      alt: 'Video memory',
+      width: 800,
+      height: 600,
+      title: language === 'fr' ? 'Souvenir Vidéo' : 'Video Memory',
+      description: language === 'fr' ? 'Vidéo de Joëlle' : 'Video of Joëlle',
+      category: 'video',
+      type: 'video',
+      poster: '/images/family/IMG_8217.JPG' // Using a family photo as poster
+    },
   ];
 
-  // Prepare slides for lightbox (only standard properties)
-  const slides = photos.map(photo => ({
-    src: photo.src,
-    alt: photo.alt,
-  }));
+  // Filter media by category
+  const filteredMedia = selectedCategory === 'all'
+    ? allMedia
+    : allMedia.filter(item => item.category === selectedCategory);
+
+  // Categories
+  const categories = [
+    { id: 'all', labelEn: 'All', labelFr: 'Tout', count: allMedia.length },
+    { id: 'wedding', labelEn: 'Wedding', labelFr: 'Mariage', count: allMedia.filter(m => m.category === 'wedding').length },
+    { id: 'family', labelEn: 'Family', labelFr: 'Famille', count: allMedia.filter(m => m.category === 'family').length },
+    { id: 'childhood', labelEn: 'Childhood', labelFr: 'Enfance', count: allMedia.filter(m => m.category === 'childhood').length },
+    { id: 'education', labelEn: 'Education', labelFr: 'Éducation', count: allMedia.filter(m => m.category === 'education').length },
+    { id: 'professional', labelEn: 'Professional', labelFr: 'Professionnel', count: allMedia.filter(m => m.category === 'professional').length },
+    { id: 'celebrations', labelEn: 'Celebrations', labelFr: 'Célébrations', count: allMedia.filter(m => m.category === 'celebrations').length },
+    { id: 'video', labelEn: 'Video', labelFr: 'Vidéo', count: allMedia.filter(m => m.category === 'video').length },
+  ];
+
+  // Prepare slides for lightbox
+  const slides = filteredMedia.map(item => {
+    if (item.type === 'video') {
+      return {
+        type: 'video' as const,
+        sources: [
+          {
+            src: item.src,
+            type: 'video/quicktime',
+          },
+        ],
+        poster: item.poster,
+      };
+    }
+    return {
+      src: item.src,
+      alt: item.alt,
+    };
+  });
 
   const openLightbox = (index: number) => {
     setCurrentImageIndex(index);
@@ -79,16 +485,33 @@ export default function PhotoGalleryEnhanced() {
           {t('gallery.subtitle')}
         </p>
 
-        {/* Photo Grid - Responsive Masonry-style Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-12">
-          {photos.map((photo, index) => (
+        {/* Category Filter */}
+        <div className="flex flex-wrap justify-center gap-2 mb-8">
+          {categories.map((category) => (
+            <button
+              key={category.id}
+              onClick={() => setSelectedCategory(category.id)}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                selectedCategory === category.id
+                  ? 'bg-[#8b7355] text-white shadow-lg scale-105'
+                  : 'bg-white text-gray-700 hover:bg-gray-100 shadow-md'
+              }`}
+            >
+              {language === 'fr' ? category.labelFr : category.labelEn} ({category.count})
+            </button>
+          ))}
+        </div>
+
+        {/* Photo/Video Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto mb-12">
+          {filteredMedia.map((item, index) => (
             <article
               key={index}
               className="group relative bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02]"
               onClick={() => openLightbox(index)}
               role="button"
               tabIndex={0}
-              aria-label={`View ${photo.title} in fullscreen`}
+              aria-label={`View ${item.title} in fullscreen`}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                   e.preventDefault();
@@ -96,22 +519,42 @@ export default function PhotoGalleryEnhanced() {
                 }
               }}
             >
-              {/* Image Container */}
-              <div className="relative h-80 w-full overflow-hidden bg-gray-100">
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  priority={index === 0}
-                />
+              {/* Image/Video Container */}
+              <div className="relative h-64 w-full overflow-hidden bg-gray-100">
+                {item.type === 'video' ? (
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={item.poster || item.src}
+                      alt={item.alt}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                    {/* Video Play Icon */}
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+                      <div className="bg-white/90 rounded-full p-4 shadow-lg group-hover:scale-110 transition-transform">
+                        <svg className="w-12 h-12 text-[#8b7355]" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    priority={index < 8}
+                  />
+                )}
 
                 {/* Overlay on hover */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                   <div className="text-white">
-                    <h3 className="text-lg font-semibold mb-1">{photo.title}</h3>
-                    <p className="text-sm">{photo.description}</p>
+                    <h3 className="text-lg font-semibold mb-1">{item.title}</h3>
+                    <p className="text-sm">{item.description}</p>
                   </div>
                 </div>
 
@@ -125,30 +568,37 @@ export default function PhotoGalleryEnhanced() {
                 </div>
               </div>
 
-              {/* Photo metadata */}
+              {/* Media metadata */}
               <div className="p-4">
-                <h3 className="text-lg font-semibold text-gray-800 mb-1">{photo.title}</h3>
-                <p className="text-sm text-gray-600">{photo.description}</p>
+                <h3 className="text-lg font-semibold text-gray-800 mb-1 flex items-center gap-2">
+                  {item.type === 'video' && <span className="text-red-500">▶</span>}
+                  {item.title}
+                </h3>
+                <p className="text-sm text-gray-600">{item.description}</p>
               </div>
             </article>
           ))}
         </div>
 
-        {/* Lightbox */}
+        {/* Lightbox with Video Support */}
         <Lightbox
           open={lightboxOpen}
           close={() => setLightboxOpen(false)}
           slides={slides}
           index={currentImageIndex}
+          plugins={[Video]}
           on={{
             view: ({ index }) => setCurrentImageIndex(index),
           }}
           carousel={{
-            finite: photos.length <= 1,
+            finite: filteredMedia.length <= 1,
           }}
           render={{
             slide: ({ slide }) => {
-              const currentPhoto = photos[currentImageIndex];
+              const currentItem = filteredMedia[currentImageIndex];
+              if (slide.type === 'video') {
+                return null; // Let the plugin handle video rendering
+              }
               return (
                 <div className="flex flex-col items-center justify-center h-full">
                   <img
@@ -156,10 +606,10 @@ export default function PhotoGalleryEnhanced() {
                     alt={slide.alt}
                     className="max-h-[80vh] max-w-full object-contain"
                   />
-                  {currentPhoto && (
+                  {currentItem && (
                     <div className="mt-4 text-center px-4">
-                      <h3 className="text-xl font-semibold text-white mb-2">{currentPhoto.title}</h3>
-                      <p className="text-sm text-white/80">{currentPhoto.description}</p>
+                      <h3 className="text-xl font-semibold text-white mb-2">{currentItem.title}</h3>
+                      <p className="text-sm text-white/80">{currentItem.description}</p>
                     </div>
                   )}
                 </div>
@@ -169,8 +619,11 @@ export default function PhotoGalleryEnhanced() {
           styles={{
             container: { backgroundColor: "rgba(0, 0, 0, 0.95)" },
           }}
+          video={{
+            autoPlay: true,
+            controls: true,
+          }}
         />
-
       </div>
     </section>
   );
