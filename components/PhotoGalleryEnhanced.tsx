@@ -16,35 +16,41 @@ interface Photo {
 }
 
 export default function PhotoGalleryEnhanced() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  // Wedding photos with metadata - using direct text since translations are showing keys
+  // Wedding photos with bilingual metadata
   const photos: Photo[] = [
     {
       src: '/images/wedding/IMG-20170819-WA0015.jpg',
       alt: 'Joëlle and Lionel wedding ceremony',
       width: 800,
       height: 600,
-      title: 'Wedding Ceremony',
-      description: "Beautiful moment from Joëlle and Lionel's wedding ceremony in June 2017"
+      title: language === 'fr' ? 'Cérémonie de Mariage' : 'Wedding Ceremony',
+      description: language === 'fr'
+        ? "Beau moment de la cérémonie de mariage de Joëlle et Lionel en juin 2017"
+        : "Beautiful moment from Joëlle and Lionel's wedding ceremony in June 2017"
     },
     {
       src: '/images/wedding/IMG_1751.JPG',
       alt: 'Joëlle and Lionel wedding celebration',
       width: 800,
       height: 600,
-      title: 'Wedding Celebration',
-      description: 'Joyful celebration with family and friends'
+      title: language === 'fr' ? 'Célébration de Mariage' : 'Wedding Celebration',
+      description: language === 'fr'
+        ? 'Joyeuse célébration avec la famille et les amis'
+        : 'Joyful celebration with family and friends'
     },
     {
       src: '/images/wedding/IMG_1914.JPG',
       alt: 'Joëlle and Lionel wedding portrait',
       width: 800,
       height: 600,
-      title: 'Wedding Portrait',
-      description: 'Beautiful wedding portrait of the happy couple'
+      title: language === 'fr' ? 'Portrait de Mariage' : 'Wedding Portrait',
+      description: language === 'fr'
+        ? 'Beau portrait de mariage du couple heureux'
+        : 'Beautiful wedding portrait of the happy couple'
     }
   ];
 
