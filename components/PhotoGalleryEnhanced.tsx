@@ -54,12 +54,10 @@ export default function PhotoGalleryEnhanced() {
     }
   ];
 
-  // Prepare slides for lightbox
+  // Prepare slides for lightbox (only standard properties)
   const slides = photos.map(photo => ({
     src: photo.src,
     alt: photo.alt,
-    title: photo.title,
-    description: photo.description,
   }));
 
   const openLightbox = (index: number) => {
@@ -149,23 +147,24 @@ export default function PhotoGalleryEnhanced() {
             finite: photos.length <= 1,
           }}
           render={{
-            slide: ({ slide }) => (
-              <div className="flex flex-col items-center justify-center h-full">
-                <img
-                  src={slide.src}
-                  alt={slide.alt}
-                  className="max-h-[80vh] max-w-full object-contain"
-                />
-                {slide.title && (
-                  <div className="mt-4 text-center px-4">
-                    <h3 className="text-xl font-semibold text-white mb-2">{slide.title}</h3>
-                    {slide.description && (
-                      <p className="text-sm text-white/80">{slide.description}</p>
-                    )}
-                  </div>
-                )}
-              </div>
-            ),
+            slide: ({ slide }) => {
+              const currentPhoto = photos[currentImageIndex];
+              return (
+                <div className="flex flex-col items-center justify-center h-full">
+                  <img
+                    src={slide.src}
+                    alt={slide.alt}
+                    className="max-h-[80vh] max-w-full object-contain"
+                  />
+                  {currentPhoto && (
+                    <div className="mt-4 text-center px-4">
+                      <h3 className="text-xl font-semibold text-white mb-2">{currentPhoto.title}</h3>
+                      <p className="text-sm text-white/80">{currentPhoto.description}</p>
+                    </div>
+                  )}
+                </div>
+              );
+            },
           }}
           styles={{
             container: { backgroundColor: "rgba(0, 0, 0, 0.95)" },
